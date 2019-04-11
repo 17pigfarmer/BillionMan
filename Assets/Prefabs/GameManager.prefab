@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3132530206804120547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3132530206804120545}
+  - component: {fileID: 3132530206804120544}
+  - component: {fileID: 3132530206804120558}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3132530206804120545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3132530206804120547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35869572, y: -2.1136456, z: -0.375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3132530206804120544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3132530206804120547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff182172d726402b9e9eacdb89c9724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 11
+  rows: 11
+  roads:
+  - {fileID: 8125630657236779642, guid: 19815034ae995814c90c6e8ecf7cb273, type: 3}
+  - {fileID: 8484944446509528433, guid: eb30864f02f51084cb3770bcb962de2e, type: 3}
+  - {fileID: 6522576068837065431, guid: 0afce5b3e02657b43a59d044a7a63bfc, type: 3}
+  - {fileID: 3426346305122397758, guid: 56e24d217c2514a4490496ac97c53e87, type: 3}
+  corners:
+  - {fileID: 3992494820674883063, guid: 51871a335f212ed4ea0188809822da8b, type: 3}
+  - {fileID: 2478719863399050741, guid: c4e3cb66dbc30154d9ad2b61d20a2b18, type: 3}
+  - {fileID: 1732388447005033757, guid: 8dfff60541e29fb47961c6042a3418e8, type: 3}
+  - {fileID: 5358640620524252780, guid: de58af572d6ad3340aabd0b9d599b2d8, type: 3}
+  houses:
+  - {fileID: 3996302624113789691, guid: f50d0ce3181f36f48b2c4090dbf3bb89, type: 3}
+  - {fileID: 2017753693556800091, guid: 2730a30ecaa10ce408dd23599c715525, type: 3}
+  - {fileID: 2797805519891566727, guid: c06d9ebd39240d14b85933ed12ac1349, type: 3}
+  - {fileID: 1580609262257427470, guid: 93f74a053e69dd44b85ec456029338c2, type: 3}
+  snowfloor: {fileID: 4715744109403615361, guid: 7cc5e4e3710fff849a3f4f921676f06e,
+    type: 3}
+--- !u!114 &3132530206804120558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3132530206804120547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d59e4dfb9c9404b9471de0c983feac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
