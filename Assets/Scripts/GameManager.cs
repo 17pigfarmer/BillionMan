@@ -3,46 +3,53 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 
-	using System.Collections.Generic;		//Allows us to use Lists. 
-	using UnityEngine.UI;                   //Allows us to use UI.
+using System.Collections.Generic;       //Allows us to use Lists. 
+using UnityEngine.UI;                   //Allows us to use UI.
 
-    public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
+{
+
+    public static GameManager instance = null;
+    
+    private BoardManager boardScript;
+    private Button _StartButton;
+
+
+    void Awake()
     {
-
-        public static GameManager instance = null;
-
-
-        private BoardManager boardScript;                       //Store a reference to our BoardManager which will set up the level.
-
-
-
-
-        //Awake is always called before any Start functions
-        void Awake()
+        if (instance == null)
         {
-            if(instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != this){
-                Destroy(gameObject);
-            }
-
-            boardScript = GetComponent<BoardManager>();
-
-            InitGame();
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
         }
 
+        boardScript = GetComponent<BoardManager>();
+        
 
 
 
-        //Initializes the game for each level.
-        void InitGame()
-        {
+         _StartButton = GameObject.Find("StartButton").GetComponent<Button>();
+        _StartButton.onClick.AddListener(InitGame);
 
-            boardScript.SetupScene();
 
-        }
+        //InitGame();
+    }
+
+
+
+
+    //Initializes the game for each level.
+    public void InitGame()
+    {
+        Destroy(GameObject.Find("StartConvas"));
+        Destroy(GameObject.Find("EventSystem"));
+        boardScript.SetupScene();
+        
+
+    }
 
     public void GameOver()
     {
@@ -50,13 +57,13 @@ using System.Collections;
     }
 
 
-        //Hides black image used between levels
+    //Hides black image used between levels
 
-        void Update()
-        {
-
-        }
+    void Update()
+    {
 
     }
+
+}
 
 

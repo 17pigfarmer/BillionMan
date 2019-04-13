@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3132530206804120545}
   - component: {fileID: 3132530206804120544}
   - component: {fileID: 3132530206804120558}
+  - component: {fileID: 782643526684036940}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -63,6 +64,11 @@ MonoBehaviour:
   - {fileID: 1580609262257427470, guid: 93f74a053e69dd44b85ec456029338c2, type: 3}
   snowfloor: {fileID: 4715744109403615361, guid: 7cc5e4e3710fff849a3f4f921676f06e,
     type: 3}
+  convas: {fileID: 4180851591168964938, guid: b5b90ac1fdb8bdb499dd860f6acd28ea, type: 3}
+  sys: {fileID: 4733677428199393057, guid: c235b4315be409b45aff30ef2cbf0df7, type: 3}
+  dice: {fileID: 976542288574622030, guid: 21f3b68342883544f9a53530b20b01ce, type: 3}
+  button: {fileID: 7002382181175602178, guid: 475ab9430091bb046a717b9e2bb9c15e, type: 3}
+  text: {fileID: 249525198598918987, guid: 3b3306dec12133a4d86ccff1993307e9, type: 3}
 --- !u!114 &3132530206804120558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,5 +79,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7d59e4dfb9c9404b9471de0c983feac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &782643526684036940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3132530206804120547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153c694677ca8304883f9a80bdd8f885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
