@@ -19,7 +19,7 @@ public abstract class MovingObject : MonoBehaviour
         inverseMoveTime = 1f / moveTime;
     } 
 
-    protected bool Move (int xDir,int yDir)
+    protected bool Move (float xDir,float yDir)
     {
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);

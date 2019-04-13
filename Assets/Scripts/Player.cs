@@ -12,22 +12,16 @@ public class Player : MovingObject
         base.Start();
     }
 
-
-    // Update is called once per frame
-    void Update()
+    void playerMove(int x)
     {
-        int horizontal = 0;
-        int vertical = 0;
-        horizontal = (int)Input.GetAxisRaw("Horizontal");
-        vertical = (int)Input.GetAxisRaw("Vertical");
 
-        if (horizontal != 0)
-            vertical = 0;
-
-        if (horizontal != 0 || vertical != 0)
-        {
-           Move(horizontal, vertical);
-        }
     }
-    
+ 
+
+    Vector3 GetVector3(Vector3 old)
+    {
+        Vector3 newvec = new Vector3(old.x + old.y, (old.y - old.x) * 0.71f, old.y - old.x);
+
+        return newvec;
+    }
 }

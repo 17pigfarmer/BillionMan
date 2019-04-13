@@ -12,19 +12,21 @@ public class BoardManager : MonoBehaviour
 {
     private enum Towards { kLEFT, kRIGHT, kUP, kDOWN };
     private enum Corners { kLU, kRU, kLD, kRD };
-    public int columns = 11;                                        //Number of columns in our game board.
-    public int rows = 11;                                           //Number of rows in our game board.
+    public Vector3[] Positions;
+    
+    public int columns = 11;                                        
+    public int rows = 11;                                           
 
     public GameObject[] roads;
     public GameObject[] corners;
     public GameObject[] houses;
     public GameObject snowfloor;
-   public GameObject convas;
+    public GameObject convas;
     public GameObject sys;
     public GameObject dice;
     public GameObject button;
     public GameObject text;
-  
+    public GameObject[] players;
 
 
 
@@ -229,12 +231,12 @@ public class BoardManager : MonoBehaviour
     }
 
 
-    void SetDice(Transform parent)
+    void SetDice()
     {
         GameObject toInstantiate = convas;
         GameObject instance =
             Instantiate(toInstantiate, GetVector3(new Vector3(0, 0, 0)), Quaternion.identity) as GameObject;
-        
+
 
         GameObject toInstantiate1 = sys;
         GameObject instance1 =
@@ -246,7 +248,7 @@ public class BoardManager : MonoBehaviour
         diceButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(391, -90);
         diceButton.transform.Find("Text").GetComponent<Text>().text = "骰子";
 
-        GameObject stepText= Instantiate(text);
+        GameObject stepText = Instantiate(text);
         stepText.transform.SetParent(instance.transform);
         stepText.name = "stepText";
         stepText.GetComponent<RectTransform>().anchoredPosition = new Vector2(394, -141);
@@ -259,10 +261,47 @@ public class BoardManager : MonoBehaviour
 
         instance2.GetComponent<Dice>().Init("diceButton", "stepText");
     }
+
+    void SetPlayers()
+    {
+
+        GameObject pl0to = players[0];
+        GameObject pl0 = Instantiate(pl0to, Positions[0] + GetVector3(new Vector3(-0.13f, 0.13f, 0)), Quaternion.identity) as GameObject;
+
+        GameObject pl1to = players[1];
+        GameObject pl1 = Instantiate(pl1to, Positions[0] + GetVector3(new Vector3(0.13f, -0.13f, 0)), Quaternion.identity) as GameObject;
+
+        GameObject pl2to = players[2];
+        GameObject pl2 = Instantiate(pl2to, Positions[0] + GetVector3(new Vector3(-0.13f, -0.13f, 0)), Quaternion.identity) as GameObject;
+
+        GameObject pl3to = players[3];
+        GameObject pl3 = Instantiate(pl3to, Positions[0] + GetVector3(new Vector3(0.13f, 0.13f, 0)), Quaternion.identity) as GameObject;
+
+    }
+
+
+    void SetPositions()
+    {
+        Vector3[] pos = {
+            new Vector3(2, 0.3f, 0),new Vector3(3, 1, 0),new Vector3(4, 1.7f, 0),new Vector3(5, 2.4f, 0),
+        new Vector3(6, 3.1f, 0),new Vector3(7, 3.8f, 0),new Vector3(8, 4.5f, 0),new Vector3(9, 5.2f, 0),
+        new Vector3(10, 5.9f, 0),new Vector3(11, 5.2f, 0),new Vector3(12, 4.5f, 0),new Vector3(13, 3.8f, 0),
+        new Vector3(14, 3.1f, 0),new Vector3(15, 2.4f, 0),new Vector3(16, 1.7f, 0),new Vector3(17, 1f, 0),
+        new Vector3(18, 0.3f, 0),new Vector3(17, -0.4f, 0),new Vector3(16, -1.1f, 0),new Vector3(15, -1.8f, 0),
+        new Vector3(14, -2.5f, 0),new Vector3(13, -3.2f, 0),new Vector3(12, -3.9f, 0),new Vector3(11, -4.6f, 0),
+        new Vector3(10, -5.3f, 0),new Vector3(9, -4.6f, 0),new Vector3(8, -3.9f, 0),new Vector3(7, -3.2f, 0),
+        new Vector3(6, -2.5f, 0),new Vector3(5, -1.8f, 0),new Vector3(4, -1.1f, 0),new Vector3(3, -0.4f, 0),
+    };
+        Positions = pos;
+    }
+
+
     //Sets up the outer walls and floor (background) of the game board.
     void BoardSetup()
     {
         boardHolder = new GameObject("Board").transform;
+
+        SetPositions();
 
         SetRoads(boardHolder);
 
@@ -272,12 +311,12 @@ public class BoardManager : MonoBehaviour
 
         SetHouses(boardHolder);
 
-        SetDice(boardHolder);
+        SetDice();
 
-        
+        SetPlayers();
     }
 
-   
+
 
     Vector3 GetVector3(Vector3 old)
     {
