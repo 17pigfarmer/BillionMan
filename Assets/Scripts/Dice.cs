@@ -30,6 +30,8 @@ public class Dice: MonoBehaviour
         randomStep();
         stepNumText = GameObject.Find(s).GetComponent<Text>();
         stepNumText.text = ""+stepNum;
+
+        GameManager.instance.MovePlayerInTurn(stepNum);
     }
 
     public void randomStep()

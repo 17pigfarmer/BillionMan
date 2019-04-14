@@ -260,6 +260,7 @@ public class BoardManager : MonoBehaviour
             Instantiate(toInstantiate2, GetVector3(new Vector3(0, 0, 0)), Quaternion.identity) as GameObject;
 
         instance2.GetComponent<Dice>().Init("diceButton", "stepText");
+        GameManager.instance.dice = instance2;
     }
 
     void SetPlayers()
@@ -267,15 +268,19 @@ public class BoardManager : MonoBehaviour
 
         GameObject pl0to = players[0];
         GameObject pl0 = Instantiate(pl0to, Positions[0] + GetVector3(new Vector3(-0.13f, 0.13f, 0)), Quaternion.identity) as GameObject;
+        GameManager.instance.players[0] = pl0;
 
         GameObject pl1to = players[1];
         GameObject pl1 = Instantiate(pl1to, Positions[0] + GetVector3(new Vector3(0.13f, -0.13f, 0)), Quaternion.identity) as GameObject;
+        GameManager.instance.players[1] = pl1;
 
         GameObject pl2to = players[2];
         GameObject pl2 = Instantiate(pl2to, Positions[0] + GetVector3(new Vector3(-0.13f, -0.13f, 0)), Quaternion.identity) as GameObject;
+        GameManager.instance.players[2] = pl2;
 
         GameObject pl3to = players[3];
         GameObject pl3 = Instantiate(pl3to, Positions[0] + GetVector3(new Vector3(0.13f, 0.13f, 0)), Quaternion.identity) as GameObject;
+        GameManager.instance.players[3] = pl3;
 
     }
 

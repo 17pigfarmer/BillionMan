@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     
     private BoardManager boardScript;
     private Button _StartButton;
+    public GameObject dice;
+    public GameObject[] players;
+    public int turn;
 
 
     void Awake()
@@ -27,8 +30,8 @@ public class GameManager : MonoBehaviour
         }
 
         boardScript = GetComponent<BoardManager>();
-        
-
+        turn = 0;
+        players = new GameObject[4];
 
 
          _StartButton = GameObject.Find("StartButton").GetComponent<Button>();
@@ -63,6 +66,22 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    void AddTurn()
+    {
+        turn++;
+        if (turn == 4)
+        {
+            turn = 0;
+        }
+    }
+
+    public void MovePlayerInTurn(int step)
+    {
+        StartCoroutine( players[turn].GetComponent<Player>().playerMove(step,boardScript.Positions));
+        AddTurn();
+        
+    }
+
 
 }
 

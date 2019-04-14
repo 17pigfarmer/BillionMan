@@ -5,15 +5,36 @@ using UnityEngine;
 public class Player : MovingObject 
 {
     private Animator animator;
-    // Start is called before the first frame update
+    public int pos; 
+
     protected override void Start()
     {
         animator = GetComponent<Animator>();
         base.Start();
+        pos = 0;
     }
 
-    void playerMove(int x)
+    public IEnumerator playerMove(int x, Vector3[] Positions)
     {
+        for(int i = 0; i < x; i++)
+        {
+            if (pos + 1 != 32)
+            {
+                Vector3 vec = Positions[pos + 1] - Positions[pos];
+                Move(vec.x, vec.y);
+                yield return new WaitForSeconds(0.5f);
+                pos++;
+            }
+            else
+            {
+                Vector3 vec = Positions[0] - Positions[pos];
+                Move(vec.x, vec.y);
+                yield return new WaitForSeconds(0.5f);
+                pos = 0;
+            }
+        }
+        
+        yield break;
 
     }
  
