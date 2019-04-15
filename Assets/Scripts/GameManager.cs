@@ -77,7 +77,8 @@ public class GameManager : MonoBehaviour
 
     public void MovePlayerInTurn(int step)
     {
-        StartCoroutine( players[turn].GetComponent<Player>().playerMove(step,boardScript.Positions));
+        
+        StartCoroutine( players[turn].GetComponent<Player>().playerMove(step,boardScript.Positions,turn));
         AddTurn();
         
     }

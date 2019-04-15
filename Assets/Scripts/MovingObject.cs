@@ -6,17 +6,17 @@ public abstract class MovingObject : MonoBehaviour
 {
 
     public float moveTime = 0.1f;
-    public LayerMask blockingLayer;
+    
 
 
-    private Rigidbody2D rb2D;
-    private float inverseMoveTime;
+    
+    
 
 
     protected virtual void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-        inverseMoveTime = 1f / moveTime;
+        
+        
     } 
 
     protected bool Move (float xDir,float yDir)
@@ -24,12 +24,13 @@ public abstract class MovingObject : MonoBehaviour
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
 
-        StartCoroutine(SmoothMovement(end));
+//StartCoroutine(SmoothMovement(end));
 
         return true;
         
        
     }
+    /*
     protected IEnumerator SmoothMovement (Vector3 end)
     {
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
@@ -43,8 +44,8 @@ public abstract class MovingObject : MonoBehaviour
         }
     }
 
-
-
+    */
+    
 
 
     
